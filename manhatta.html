@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manhatta — New American Restaurant | 60th Floor, New York</title>
+<meta name="description" content="Manhatta is a modern New American restaurant on the 60th floor of 28 Liberty St, New York. Experience multi-course dining, a curated bar, and private events with stunning city views.">
+<meta name="keywords" content="Manhattan restaurant, fine dining New York, rooftop restaurant NYC, Manhatta, 28 Liberty Street">
+<meta property="og:title" content="Manhatta — New American Restaurant">
+<meta property="og:description" content="Modern New American dining on the 60th floor with unmatched city views.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E2C47B;
+    --gold-dim: #8B6E2E;
+    --black: #0A0A09;
+    --charcoal: #141412;
+    --dark: #1C1C19;
+    --panel: #232320;
+    --muted: #3A3A36;
+    --border: rgba(201,168,76,0.2);
+    --text-primary: #F0ECD8;
+    --text-secondary: #A09880;
+    --text-dim: #5C5A52;
+    --white: #FAF8F0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--black);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    background: rgba(10,10,9,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.65rem;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-logo span { color: var(--text-primary); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    padding: 9px 22px;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold) !important;
+    border-radius: 1px;
+    transition: all 0.25s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold) !important;
+    color: var(--black) !important;
+    border-color: var(--gold) !important;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+    transition: all 0.3s;
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(10,10,9,0.3) 0%, rgba(10,10,9,0.55) 5%, rgba(10,10,9,1) 100%),
+      url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80') center/cover no-repeat;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 1rem;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+    font-weight: 800;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 11vw, 9rem);
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-tagline {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    letter-spacing: 0.06em;
+    margin-bottom: 2.8rem;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    padding: 14px 36px;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    border-radius: 1px;
+    transition: all 0.25s;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--gold);
+  }
+
+  .btn-outline {
+    padding: 14px 36px;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(240,236,216,0.3);
+    border-radius: 1px;
+    transition: all 0.25s;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold-dim);
+    color: var(--gold-light);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
+    50% { opacity: 1; transform: translateX(-50%) translateY(4px); }
+  }
+
+  .hero-scroll span {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  /* ─── SECTION SHARED ─── */
+  section { padding: 7rem 5vw; }
+
+  .section-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 1.2rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold-light); }
+
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold-dim);
+    margin-bottom: 1.6rem;
+  }
+
+  /* ─── INTRO / ABOUT PREVIEW ─── */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6vw;
+    align-items: center;
+    background: var(--charcoal);
+  }
+
+  .about-img-wrap {
+    position: relative;
+  }
+
+  .about-img-wrap img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.85);
+  }
+
+  .about-img-accent {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 50%;
+    aspect-ratio: 1;
+    border: 1px solid var(--border);
+    z-index: -1;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    margin-bottom: 1.2rem;
+  }
+
+  /* ─── EXPERIENCES ─── */
+  #experiences {
+    background: var(--black);
+  }
+
+  .experiences-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .exp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+  }
+
+  .exp-card {
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .exp-card-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+    filter: brightness(0.6) saturate(0.8);
+  }
+
+  .exp-card:hover .exp-card-img {
+    transform: scale(1.04);
+    filter: brightness(0.75) saturate(1);
+  }
+
+  .exp-card-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 2rem 1.8rem;
+    background: linear-gradient(to top, rgba(10,10,9,0.97) 0%, rgba(10,10,9,0.7) 60%, transparent 100%);
+  }
+
+  .exp-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .exp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+    line-height: 1.1;
+  }
+
+  .exp-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+  }
+
+  .exp-link {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold-dim);
+    padding-bottom: 2px;
+    transition: all 0.2s;
+  }
+
+  .exp-link:hover {
+    color: var(--gold-light);
+    border-color: var(--gold);
+  }
+
+  /* ─── MENU ─── */
+  #menu {
+    background: var(--charcoal);
+  }
+
+  .menu-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+  }
+
+  .menu-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-right: 1px solid var(--border);
+    padding-right: 2rem;
+  }
+
+  .menu-tab {
+    padding: 1rem 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--text-dim);
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .menu-tab::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.3s;
+  }
+
+  .menu-tab.active, .menu-tab:hover {
+    color: var(--gold-light);
+  }
+
+  .menu-tab.active::before {
+    width: 24px;
+  }
+
+  .menu-items-pane { display: none; }
+  .menu-items-pane.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+
+  .menu-item {
+    background: var(--panel);
+    border: 1px solid rgba(201,168,76,0.08);
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+
+  .menu-item:hover { border-color: var(--gold-dim); }
+
+  .menu-item-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    filter: brightness(0.88);
+  }
+
+  .menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  .menu-item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--white);
+  }
+
+  .menu-item-price {
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .menu-item-desc {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials {
+    background: var(--dark);
+    overflow: hidden;
+  }
+
+  .testimonials-header { text-align: center; margin-bottom: 3.5rem; }
+
+  .testimonials-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .testimonials-track::-webkit-scrollbar { display: none; }
+
+  .testimonial-card {
+    min-width: 340px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 2.2rem;
+    flex-shrink: 0;
+  }
+
+  .stars {
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.2rem;
+  }
+
+  .testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  .testimonial-author {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+
+  /* ─── RESERVATION ─── */
+  #reservation {
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #reservation::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1400&q=80') center/cover no-repeat;
+    opacity: 0.08;
+  }
+
+  .reservation-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .res-form {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .res-form .full { grid-column: 1 / -1; }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+
+  .form-group select option { background: var(--panel); }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold-dim);
+    background: rgba(201,168,76,0.04);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  /* ─── EVENTS ─── */
+  #events {
+    background: var(--charcoal);
+  }
+
+  .events-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .events-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    filter: brightness(0.75) saturate(0.7);
+  }
+
+  .events-text p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    margin-bottom: 1.2rem;
+  }
+
+  .events-bullets {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  .events-bullets li {
+    padding: 0.7rem 0;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .events-bullets li::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ─── PRESS ─── */
+  #press {
+    background: var(--dark);
+    text-align: center;
+  }
+
+  .press-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem 3rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    opacity: 0.4;
+  }
+
+  .press-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+  }
+
+  .press-quote {
+    max-width: 680px;
+    margin: 3rem auto 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .press-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-style: normal;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+
+  /* ─── LOCATION ─── */
+  #location {
+    background: var(--black);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+  }
+
+  .location-info {
+    padding: 7rem 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .location-details {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .location-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .location-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+
+  .location-item-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 0.3rem;
+  }
+
+  .location-item-value {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .location-map {
+    background: var(--panel);
+    min-height: 520px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .location-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(0.9) invert(0.85) hue-rotate(180deg) brightness(0.7);
+    display: block;
+  }
+
+  /* ─── HOURS ─── */
+  .hours-grid {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.85rem;
+  }
+
+  .hours-row .day { color: var(--text-dim); font-weight: 300; }
+  .hours-row .time { color: var(--text-secondary); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--charcoal);
+    border-top: 1px solid var(--border);
+    padding: 4rem 5vw 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+    text-decoration: none;
+  }
+
+  .footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 260px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .social-link {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+    font-family: sans-serif;
+  }
+
+  .social-link:hover {
+    border-color: var(--gold-dim);
+    color: var(--gold);
+  }
+
+  .footer-col h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .footer-col ul li a {
+    font-size: 0.83rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 300;
+  }
+
+  .footer-col ul li a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    font-weight: 300;
+  }
+
+  .footer-bottom a { color: var(--gold-dim); text-decoration: none; }
+
+  /* ─── EMAIL SIGNUP BANNER ─── */
+  .email-banner {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .email-banner h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--white);
+  }
+
+  .email-banner p {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    margin-top: 0.3rem;
+  }
+
+  .email-input-group {
+    display: flex;
+    gap: 0;
+    flex: 1;
+    max-width: 420px;
+  }
+
+  .email-input-group input {
+    flex: 1;
+    padding: 12px 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-right: none;
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    outline: none;
+  }
+
+  .email-input-group button {
+    padding: 12px 24px;
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    color: var(--black);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .email-input-group button:hover {
+    background: transparent;
+    color: var(--gold);
+  }
+
+  /* ─── MOBILE NAV ─── */
+  .mobile-nav {
+    position: fixed;
+    top: 72px;
+    left: 0; right: 0;
+    background: rgba(10,10,9,0.97);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 5vw;
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 999;
+  }
+
+  .mobile-nav.open { display: flex; }
+
+  .mobile-nav a {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    letter-spacing: 0.08em;
+  }
+
+  .mobile-nav a:hover { color: var(--gold-light); }
+
+  /* ─── CONFIRMATION MODAL ─── */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-backdrop.open { display: flex; }
+
+  .modal-box {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 3rem;
+    max-width: 440px;
+    width: 90%;
+    text-align: center;
+  }
+
+  .modal-box h3 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+
+  .modal-box p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  .modal-close {
+    padding: 10px 28px;
+    background: transparent;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .modal-close:hover { background: var(--gold); color: var(--black); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    #about {
+      grid-template-columns: 1fr;
+    }
+
+    .about-img-wrap { max-height: 380px; overflow: hidden; }
+
+    .exp-grid { grid-template-columns: 1fr; }
+
+    .menu-layout { grid-template-columns: 1fr; }
+    .menu-tabs {
+      flex-direction: row;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding-right: 0;
+      padding-bottom: 0;
+      overflow-x: auto;
+      gap: 0;
+    }
+    .menu-tab { font-size: 1rem; padding: 0.8rem 1rem; border-bottom: none; white-space: nowrap; }
+    .menu-tab.active { border-bottom: 2px solid var(--gold); }
+    .menu-tab::before { display: none; }
+    .menu-items-pane.active { grid-template-columns: 1fr; }
+
+    .events-layout { grid-template-columns: 1fr; }
+
+    #location { grid-template-columns: 1fr; }
+    .location-map { min-height: 320px; }
+
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+
+    .email-banner { flex-direction: column; }
+    .email-input-group { width: 100%; max-width: 100%; }
+
+    .res-form { grid-template-columns: 1fr; }
+    .res-form .full { grid-column: 1; }
+  }
+
+  @media (max-width: 580px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 3.2rem; }
+    section { padding: 5rem 5vw; }
+    .location-info { padding: 4rem 5vw; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Man<span>hatta</span></a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menus</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#press">Press</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#reservation" class="nav-cta">Reserve</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#menu" onclick="closeMobileNav()">Menus</a>
+  <a href="#about" onclick="closeMobileNav()">Our Story</a>
+  <a href="#events" onclick="closeMobileNav()">Events</a>
+  <a href="#press" onclick="closeMobileNav()">Press</a>
+  <a href="#location" onclick="closeMobileNav()">Location &amp; Hours</a>
+  <a href="#reservation" onclick="closeMobileNav()">Reservations</a>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">28 Liberty St · 60th Floor · New York</p>
+    <h1 class="hero-title">Man<em>hatta</em></h1>
+    <p class="hero-tagline">A modern New York restaurant, inspired by the unmatched energy of our city</p>
+    <div class="hero-actions">
+      <a href="#reservation" class="btn-primary">Reserve a Table</a>
+      <a href="#menu" class="btn-outline">Explore Menus</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section id="about">
+  <div class="about-img-wrap">
+    <img src="./Interior.webp" alt="Manhatta restaurant interior with city views" loading="lazy">
+    <div class="about-img-accent"></div>
+  </div>
+  <div class="about-text">
+    <span class="section-label">Our Story</span>
+    <h2 class="section-title">New York <em>Elevated</em></h2>
+    <div class="divider"></div>
+    <p>Manhatta is a modern New York restaurant, inspired by the unmatched energy of our city. Perched sixty floors above the financial district, we offer a perspective on dining that is as breathtaking as the skyline itself.</p>
+    <p>Our ever-evolving menu draws on traditional techniques and global influences, bringing unexpected depth to two distinct experiences — our intimate dining room and our vibrant bar &amp; lounge.</p>
+    <p>Every plate is a celebration of local ingredients, transformed through a culinary approach that feels both familiar and inventive. We believe that great food is inseparable from great place.</p>
+    <a href="#experiences" class="btn-outline" style="margin-top:0.5rem">Discover Experiences</a>
+  </div>
+</section>
+
+<!-- ═══════════════ EXPERIENCES ═══════════════ -->
+<section id="experiences">
+  <div class="experiences-header">
+    <span class="section-label">Dining Experiences</span>
+    <h2 class="section-title">Three Ways to <em>Dine</em></h2>
+  </div>
+  <div class="exp-grid">
+    <div class="exp-card">
+      <img class="exp-card-img" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" alt="Restaurant dining room" loading="lazy">
+      <div class="exp-card-content">
+        <span class="exp-number">01</span>
+        <h3 class="exp-title">Restaurant</h3>
+        <p class="exp-desc">Multi-course dinner and à la carte lunch with an award-winning wine list. Seasonal menus celebrating local ingredients.</p>
+        <a href="#reservation" class="exp-link">Reserve Now</a>
+      </div>
+    </div>
+    <div class="exp-card">
+      <img class="exp-card-img" src="https://images.unsplash.com/photo-1560512823-829485b8bf24?w=800&q=80" alt="Bar and lounge" loading="lazy">
+      <div class="exp-card-content">
+        <span class="exp-number">02</span>
+        <h3 class="exp-title">Bar &amp; Lounge</h3>
+        <p class="exp-desc">New York classics and creative cocktails, complemented by international wines. Walk-ins welcome — a vibrant nightspot to return to night after night.</p>
+        <a href="#menu" class="exp-link">Browse Menu</a>
+      </div>
+    </div>
+    <div class="exp-card">
+      <img class="exp-card-img" src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80" alt="Private dining event" loading="lazy">
+      <div class="exp-card-content">
+        <span class="exp-number">03</span>
+        <h3 class="exp-title">Private Dining</h3>
+        <p class="exp-desc">Full-space buyouts, intimate private dinners, weddings, and company retreats. Flexible sky-high spaces built for celebrating life's milestones.</p>
+        <a href="#events" class="exp-link">Get In Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ MENU ═══════════════ -->
+<section id="menu">
+  <span class="section-label">Culinary Offerings</span>
+  <h2 class="section-title">The <em>Menu</em></h2>
+  <div class="divider"></div>
+
+  <div class="menu-layout">
+    <div class="menu-tabs" role="tablist">
+      <button class="menu-tab active" onclick="switchTab(event,'starters')" role="tab">Starters</button>
+      <button class="menu-tab" onclick="switchTab(event,'mains')" role="tab">Main Course</button>
+      <button class="menu-tab" onclick="switchTab(event,'drinks')" role="tab">Bar &amp; Drinks</button>
+      <button class="menu-tab" onclick="switchTab(event,'desserts')" role="tab">Desserts</button>
+      <button class="menu-tab" onclick="switchTab(event,'wine')" role="tab">Wine</button>
+    </div>
+
+    <div>
+      <!-- STARTERS -->
+      <div class="menu-items-pane active" id="pane-starters">
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1541014741259-de529411b96a?w=600&q=70" alt="Oysters" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">East Coast Oysters</span><span class="menu-item-price">$24</span></div>
+          <p class="menu-item-desc">Half-dozen seasonal oysters, mignonette, horseradish, cocktail sauce</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600&q=70" alt="Tuna Tartare" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Tuna Tartare</span><span class="menu-item-price">$28</span></div>
+          <p class="menu-item-desc">Avocado, yuzu kosho, sesame crisp, micro shiso, togarashi aioli</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=70" alt="Burrata" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Burrata &amp; Heirloom</span><span class="menu-item-price">$22</span></div>
+          <p class="menu-item-desc">Heirloom tomatoes, aged balsamic, basil oil, flaked sea salt</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1625944525533-473f1a3d54e7?w=600&q=70" alt="Foie Gras" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Seared Foie Gras</span><span class="menu-item-price">$36</span></div>
+          <p class="menu-item-desc">Brioche, sour cherry compote, micro arugula, aged Pedro Ximénez</p>
+        </div>
+      </div>
+
+      <!-- MAINS -->
+      <div class="menu-items-pane" id="pane-mains">
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&q=70" alt="Wagyu beef" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Wagyu Beef Tenderloin</span><span class="menu-item-price">$78</span></div>
+          <p class="menu-item-desc">Truffle jus, roasted bone marrow, charred onion, pomme purée</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=70" alt="Halibut" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Pan-Seared Halibut</span><span class="menu-item-price">$52</span></div>
+          <p class="menu-item-desc">Cauliflower, capers, brown butter, preserved lemon, spring peas</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=600&q=70" alt="Duck" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Duck Confit</span><span class="menu-item-price">$48</span></div>
+          <p class="menu-item-desc">Farro, cherry gastrique, wilted greens, crispy duck skin</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=70" alt="Vegetarian" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Roasted Mushroom</span><span class="menu-item-price">$38</span></div>
+          <p class="menu-item-desc">Hen of the woods, aged parmesan, soft polenta, herb oil, truffle</p>
+        </div>
+      </div>
+
+      <!-- DRINKS -->
+      <div class="menu-items-pane" id="pane-drinks">
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=600&q=70" alt="Classic cocktail" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Liberty Old Fashioned</span><span class="menu-item-price">$22</span></div>
+          <p class="menu-item-desc">High-rye bourbon, black walnut bitters, smoked maple, flamed orange</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1582056954759-d4add9c9c79c?w=600&q=70" alt="Martini" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Manhatta Martini</span><span class="menu-item-price">$20</span></div>
+          <p class="menu-item-desc">Gin, dry vermouth, castelvetrano olive brine, lemon twist</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1587281307977-0e42e76ad4cd?w=600&q=70" alt="Spritz" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Skyline Spritz</span><span class="menu-item-price">$18</span></div>
+          <p class="menu-item-desc">Aperol, prosecco, elderflower, fresh grapefruit, rosemary sprig</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=600&q=70" alt="Non-alcoholic" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Zero-Proof Garden</span><span class="menu-item-price">$14</span></div>
+          <p class="menu-item-desc">Seedlip, cucumber, mint, citrus, honey, sparkling water</p>
+        </div>
+      </div>
+
+      <!-- DESSERTS -->
+      <div class="menu-items-pane" id="pane-desserts">
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=70" alt="Chocolate dessert" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Valrhona Chocolate Tart</span><span class="menu-item-price">$18</span></div>
+          <p class="menu-item-desc">Caramel, fleur de sel, crème fraîche, gold leaf</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=70" alt="Lemon tart" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Lemon Verbena Panna Cotta</span><span class="menu-item-price">$16</span></div>
+          <p class="menu-item-desc">Strawberry compote, almond tuile, micro mint</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&q=70" alt="Soufflé" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Grand Marnier Soufflé</span><span class="menu-item-price">$20</span></div>
+          <p class="menu-item-desc">Vanilla crème anglaise, candied orange zest — allow 20 minutes</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=70" alt="Ice cream" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Artisan Cheese Selection</span><span class="menu-item-price">$28</span></div>
+          <p class="menu-item-desc">Three seasonal cheeses, honeycomb, candied walnuts, fig jam, lavosh</p>
+        </div>
+      </div>
+
+      <!-- WINE -->
+      <div class="menu-items-pane" id="pane-wine">
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=70" alt="Red wine" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Burgundy by the Glass</span><span class="menu-item-price">$28</span></div>
+          <p class="menu-item-desc">Rotating selection from premier and grand cru Burgundy producers</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?w=600&q=70" alt="White wine" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">White Burgundy</span><span class="menu-item-price">$24</span></div>
+          <p class="menu-item-desc">Meursault, Puligny-Montrachet, Chablis — ask your sommelier</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=70" alt="Champagne" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Champagne Selection</span><span class="menu-item-price">$32+</span></div>
+          <p class="menu-item-desc">Krug, Dom Pérignon, Billecart-Salmon, Pol Roger — full list available</p>
+        </div>
+        <div class="menu-item">
+          <img class="menu-item-img" src="https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=70" alt="Natural wine" loading="lazy">
+          <div class="menu-item-header"><span class="menu-item-name">Natural &amp; Biodynamic</span><span class="menu-item-price">$18+</span></div>
+          <p class="menu-item-desc">Carefully curated bottles from forward-thinking producers around the world</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+<section id="testimonials">
+  <div class="testimonials-header">
+    <span class="section-label">Guest Reviews</span>
+    <h2 class="section-title">What Guests <em>Say</em></h2>
+  </div>
+  <div class="testimonials-track">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-quote">"An absolutely transcendent experience. The views alone would justify the visit, but the food elevates everything to something truly unforgettable."</p>
+      <span class="testimonial-author">— James W., New York</span>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-quote">"We celebrated our anniversary here and it was perfection. The sommelier's recommendations were exceptional and every course was a revelation."</p>
+      <span class="testimonial-author">— Sarah &amp; Michael T., Manhattan</span>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-quote">"The bar program is genuinely world-class. I come back just for the Liberty Old Fashioned and the view of the skyline at dusk."</p>
+      <span class="testimonial-author">— David C., Brooklyn</span>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-quote">"Our corporate dinner here left every guest speechless. The private dining team was meticulous, warm, and made everything seamless."</p>
+      <span class="testimonial-author">— Rachel K., Corporate Client</span>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-quote">"The tasting menu is a journey through the seasons. Each course builds on the last. I've never eaten anything quite like the wagyu tenderloin."</p>
+      <span class="testimonial-author">— Marco L., Food Critic</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ RESERVATION ═══════════════ -->
+<section id="reservation">
+  <div class="reservation-inner">
+    <span class="section-label">Book Your Table</span>
+    <h2 class="section-title">Make a <em>Reservation</em></h2>
+    <div class="divider" style="margin: 0 auto 1.5rem;"></div>
+    <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.8;font-weight:300">Secure your table at one of New York's most celebrated dining destinations. For parties of 8 or more, please contact us directly.</p>
+
+    <form class="res-form" onsubmit="submitReservation(event)">
+      <div class="form-group">
+        <label for="res-date">Date</label>
+        <input type="date" id="res-date" required>
+      </div>
+      <div class="form-group">
+        <label for="res-time">Preferred Time</label>
+        <select id="res-time">
+          <option value="">Select time</option>
+          <option>12:00 PM</option><option>12:30 PM</option>
+          <option>1:00 PM</option><option>1:30 PM</option>
+          <option>5:30 PM</option><option>6:00 PM</option>
+          <option>6:30 PM</option><option>7:00 PM</option>
+          <option>7:30 PM</option><option>8:00 PM</option>
+          <option>8:30 PM</option><option>9:00 PM</option>
+          <option>9:30 PM</option><option>10:00 PM</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="res-name">Full Name</label>
+        <input type="text" id="res-name" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="res-guests">Number of Guests</label>
+        <select id="res-guests">
+          <option>1 Guest</option><option>2 Guests</option>
+          <option>3 Guests</option><option>4 Guests</option>
+          <option>5 Guests</option><option>6 Guests</option>
+          <option>7 Guests</option><option>8+ Guests</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="res-email">Email Address</label>
+        <input type="email" id="res-email" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="res-phone">Phone Number</label>
+        <input type="tel" id="res-phone" placeholder="+1 (212) 000-0000">
+      </div>
+      <div class="form-group full">
+        <label for="res-notes">Special Requests</label>
+        <textarea id="res-notes" placeholder="Dietary requirements, special occasions, preferred seating…"></textarea>
+      </div>
+      <div class="full" style="text-align:center;margin-top:0.5rem">
+        <button type="submit" class="btn-primary">Confirm Reservation</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════════════ EVENTS ═══════════════ -->
+<section id="events">
+  <span class="section-label">Private Dining &amp; Events</span>
+  <h2 class="section-title">Celebrate <em>Above</em> the City</h2>
+  <div class="divider"></div>
+
+  <div class="events-layout">
+    <img class="events-img" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80" alt="Private event at Manhatta" loading="lazy">
+    <div class="events-text">
+      <p>Manhatta is available for full-space buyouts, intimate private dinners, weddings, and company retreats. We offer a variety of flexible sky-high spaces, each designed with celebration in mind.</p>
+      <p>Our events team will work with you to craft a bespoke experience — from custom menus and curated wine pairings to floral arrangements and personalized service.</p>
+      <ul class="events-bullets">
+        <li>Full venue and partial space buyouts</li>
+        <li>Intimate private dining rooms</li>
+        <li>Wedding receptions &amp; rehearsal dinners</li>
+        <li>Corporate retreats &amp; client entertainment</li>
+        <li>Birthday, anniversary &amp; milestone celebrations</li>
+        <li>Bespoke menus &amp; sommelier-led wine pairing</li>
+      </ul>
+      <a href="#reservation" class="btn-primary">Enquire About Events</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PRESS ═══════════════ -->
+<section id="press">
+  <span class="section-label">As Seen In</span>
+  <h2 class="section-title">Press <em>&amp; Recognition</em></h2>
+
+  <div class="press-logos">
+    <span class="press-logo">The New York Times</span>
+    <span class="press-logo">Eater NY</span>
+    <span class="press-logo">New York Magazine</span>
+    <span class="press-logo">Forbes Travel</span>
+    <span class="press-logo">Wine Spectator</span>
+    <span class="press-logo">Condé Nast Traveler</span>
+  </div>
+
+  <blockquote class="press-quote">
+    "A skyline perch with food that actually lives up to the view — an extraordinary accomplishment in a city full of view restaurants."
+    <cite>— Pete Wells, The New York Times</cite>
+  </blockquote>
+</section>
+
+<!-- ═══════════════ LOCATION ═══════════════ -->
+<section id="location">
+  <div class="location-info">
+    <span class="section-label">Find Us</span>
+    <h2 class="section-title">Hours &amp; <em>Location</em></h2>
+    <div class="divider"></div>
+
+    <div class="location-details">
+      <div class="location-item">
+        <div class="location-icon">📍</div>
+        <div>
+          <p class="location-item-label">Address</p>
+          <p class="location-item-value">28 Liberty Street, 60th Floor<br>New York, NY 10005</p>
+        </div>
+      </div>
+      <div class="location-item">
+        <div class="location-icon">📞</div>
+        <div>
+          <p class="location-item-label">Phone</p>
+          <p class="location-item-value">+1 (212) 220-9200</p>
+        </div>
+      </div>
+      <div class="location-item">
+        <div class="location-icon">✉</div>
+        <div>
+          <p class="location-item-label">Email</p>
+          <p class="location-item-value">info@manhattarestaurant.com</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hours-grid" style="margin-top:2rem">
+      <h4 style="font-family:'Outfit';font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.8rem">Dining Hours</h4>
+      <div class="hours-row"><span class="day">Monday – Friday</span><span class="time">Lunch 12:00 – 2:00 PM</span></div>
+      <div class="hours-row"><span class="day">Monday – Saturday</span><span class="time">Dinner 5:30 – 10:30 PM</span></div>
+      <div class="hours-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
+      <h4 style="font-family:'Outfit';font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dim);margin-top:1.2rem;margin-bottom:0.8rem">Bar Hours</h4>
+      <div class="hours-row"><span class="day">Monday – Saturday</span><span class="time">5:00 PM – 12:00 AM</span></div>
+      <div class="hours-row"><span class="day">Walk-ins Welcome</span><span class="time">No reservation required</span></div>
+    </div>
+  </div>
+
+  <div class="location-map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00915368400567!3d40.70799524575786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a164c4abb3f%3A0x60b055910436a0a4!2sManhatta!5e0!3m2!1sen!2sus!4v1620000000000"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Manhatta location map — 28 Liberty St, 60th Floor, New York">
+    </iframe>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="email-banner">
+    <div>
+      <h3>Stay in the Know</h3>
+      <p>New menus, exclusive events &amp; seasonal updates — directly to your inbox</p>
+    </div>
+    <div class="email-input-group">
+      <input type="email" placeholder="Your email address" id="emailInput">
+      <button onclick="subscribeEmail()">Subscribe</button>
+    </div>
+  </div>
+
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="logo">Manhatta</a>
+      <p>A modern New American restaurant on the 60th floor of 28 Liberty Street, New York — where the city's energy becomes the backdrop for extraordinary dining.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/ManhattaRestaurant/" class="social-link" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+        <a href="https://twitter.com/manhatta_nyc" class="social-link" target="_blank" rel="noopener" aria-label="Twitter">𝕏</a>
+        <a href="https://www.instagram.com/manhatta_nyc/" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Menus</h4>
+      <ul>
+        <li><a href="#menu" onclick="switchTabByName('starters')">Starters</a></li>
+        <li><a href="#menu" onclick="switchTabByName('mains')">Main Course</a></li>
+        <li><a href="#menu" onclick="switchTabByName('drinks')">Bar Menu</a></li>
+        <li><a href="#menu" onclick="switchTabByName('wine')">Wine List</a></li>
+        <li><a href="#menu" onclick="switchTabByName('desserts')">Desserts</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="#reservation">Reservations</a></li>
+        <li><a href="#events">Private Events</a></li>
+        <li><a href="#location">Hours &amp; Location</a></li>
+        <li><a href="https://www.ushg.com/giftcards/" target="_blank">Gift Cards</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#press">Press</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Manhatta. All rights reserved. <a href="#">Union Square Hospitality Group</a></p>
+    <p>28 Liberty St, 60th Floor, New York, NY 10005</p>
+  </div>
+</footer>
+
+<!-- ═══════════════ MODAL ═══════════════ -->
+<div class="modal-backdrop" id="modal">
+  <div class="modal-box">
+    <h3>Reservation Received</h3>
+    <p>Thank you. Your table request has been submitted. You'll receive a confirmation email within 24 hours. We look forward to welcoming you.</p>
+    <button class="modal-close" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<script>
+  function toggleMobileNav() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+  function closeMobileNav() {
+    document.getElementById('mobileNav').classList.remove('open');
+  }
+
+  function switchTab(e, tabName) {
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.menu-items-pane').forEach(p => p.classList.remove('active'));
+    e.currentTarget.classList.add('active');
+    document.getElementById('pane-' + tabName).classList.add('active');
+  }
+
+  function switchTabByName(tabName) {
+    const tabs = document.querySelectorAll('.menu-tab');
+    const panes = document.querySelectorAll('.menu-items-pane');
+    const names = ['starters','mains','drinks','desserts','wine'];
+    const idx = names.indexOf(tabName);
+    if (idx >= 0) {
+      tabs.forEach(t => t.classList.remove('active'));
+      panes.forEach(p => p.classList.remove('active'));
+      tabs[idx].classList.add('active');
+      document.getElementById('pane-' + tabName).classList.add('active');
+    }
+  }
+
+  function submitReservation(e) {
+    e.preventDefault();
+    const name = document.getElementById('res-name').value.trim();
+    const date = document.getElementById('res-date').value;
+    if (!name || !date) return;
+    document.getElementById('modal').classList.add('open');
+    e.target.reset();
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+  }
+
+  document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  function subscribeEmail() {
+    const input = document.getElementById('emailInput');
+    if (input.value && input.value.includes('@')) {
+      input.value = '';
+      input.placeholder = 'Thank you for subscribing!';
+      setTimeout(() => input.placeholder = 'Your email address', 3000);
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.height = window.scrollY > 60 ? '60px' : '72px';
+  });
+</script>
+</body>
+</html>
